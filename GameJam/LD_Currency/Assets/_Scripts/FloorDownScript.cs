@@ -21,7 +21,7 @@ public class FloorDownScript : MonoBehaviour {
         
     }
 
-    private void OnCollisionEnter(Collision col)
+    private void OnCollisionStay(Collision col)
     {
         if (col.gameObject.tag == "Player"&&sPressed)
         {
