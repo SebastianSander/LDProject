@@ -20,6 +20,23 @@ public class PlayerController : MonoBehaviour {
 
     private UnityAction deathListener;
 
+    private UnityAction changeChar;
+
+
+    void Awake()
+    {
+        changeChar = new UnityAction(ChangeChar);
+    }
+
+    void OnEnable()
+    {
+        EventManager.StartListening("changeChar", ChangeChar);
+    }
+
+    void OnDisable()
+    {
+        EventManager.StopListening("changeChar", ChangeChar);
+    }
 
 
     void Start()
@@ -61,9 +78,23 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.gameObject.tag == "Trap")
         {
-            Debug.Log("Event Trigger");
+            //Debug.Log("Event Trigger");
             EventManager.TriggerEvent("trap");
+            
         }
+    }
+
+    void ChangeChar() {
+
+        Debug.Log("TEST!");
+        if (name == "Player1") ;
+
+        switch (name) {
+            case "Player1":
+                Debug.Log("TEST");
+                break;
+        }
+
     }
 
 
