@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class GameManagerScript : MonoBehaviour {
 
 
     private int underlingsLeft=10;
+
+
 
 
     [SerializeField]
@@ -16,21 +19,19 @@ public class GameManagerScript : MonoBehaviour {
     [SerializeField]
     Text scoreText;
 
-    
+    [SerializeField]
+    CinemachineVirtualCamera cin1;
+    [SerializeField]
+    CinemachineVirtualCamera cin2;
 
 
-    //[SerializeField]
-    //GameObject player1;
-    //[SerializeField]
-    //GameObject player2;
+
 
     bool isPaused=false;
 
 
     private UnityAction deathListener;
-    private UnityAction changeChar;
-
-
+    
     void Awake()
     {
         deathListener = new UnityAction(dealWithDeath);
@@ -59,12 +60,7 @@ public class GameManagerScript : MonoBehaviour {
         underlingsLeft--;
         scoreText.text = "Underlings left: " + underlingsLeft;
 
-        //player1.GetComponent<PlayerController>().enabled = false;
-        //player2.GetComponent<PlayerController>().enabled = true;
-
-
-
-        EventManager.TriggerEvent("changeChar");
+        cin2.Priority = 10;
     }
 
     void togglePause() {
