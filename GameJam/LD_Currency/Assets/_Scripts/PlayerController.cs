@@ -86,14 +86,26 @@ public class PlayerController : MonoBehaviour {
 
     void ChangeChar() {
 
-        Debug.Log("TEST!");
-        if (name == "Player1") ;
+        //Debug.Log("TEST!");
+        
+        //switch (name) {
+        //    case "Player1":
+                
+        //        this.enabled = false ;
+        //        break;
+        //    case "Player2":
 
-        switch (name) {
-            case "Player1":
-                Debug.Log("TEST");
-                break;
-        }
+        //        break;
+        //    case "Player3":
+
+        //        break;
+        //    case "Player4":
+
+        //        break;
+        //    case "Player5":
+
+        //        break;
+        //}
 
     }
 

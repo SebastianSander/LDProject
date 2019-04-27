@@ -19,10 +19,10 @@ public class GameManagerScript : MonoBehaviour {
     
 
 
-    [SerializeField]
-    GameObject player1;
-    [SerializeField]
-    GameObject player2;
+    //[SerializeField]
+    //GameObject player1;
+    //[SerializeField]
+    //GameObject player2;
 
     bool isPaused=false;
 
@@ -59,8 +59,8 @@ public class GameManagerScript : MonoBehaviour {
         underlingsLeft--;
         scoreText.text = "Underlings left: " + underlingsLeft;
 
-        player1.GetComponent<PlayerController>().enabled = false;
-        player2.GetComponent<PlayerController>().enabled = true;
+        //player1.GetComponent<PlayerController>().enabled = false;
+        //player2.GetComponent<PlayerController>().enabled = true;
 
 
 
