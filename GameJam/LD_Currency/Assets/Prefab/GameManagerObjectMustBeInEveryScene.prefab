@@ -63,3 +63,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3cfd8d198d4b9349b30890af630141a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  scoreText: {fileID: 0}

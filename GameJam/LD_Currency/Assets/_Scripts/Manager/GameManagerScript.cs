@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour {
 
 
     private int underlingsLeft=10;
+
+
+    [SerializeField]
+    GameObject pauseMenu;
+
+    [SerializeField]
+    Text scoreText;
+
+    bool isPaused=false;
 
 
     private UnityAction scoreListener;
@@ -33,14 +42,21 @@ public class GameManagerScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        if (Input.GetKeyDown(KeyCode.Escape)) togglePause();
     }
 
     void SetScore() {
         underlingsLeft--;
-        Debug.Log("underlingsLeft:" + underlingsLeft);
+        scoreText.text = "Underlings left: " + underlingsLeft;
     }
 
+    void togglePause() {
+        isPaused = !isPaused;
+        pauseMenu.SetActive(isPaused);
+
+        if (isPaused) Time.timeScale = 0f;
+        else Time.timeScale = 1f;
+    }
 
     
 }

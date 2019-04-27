@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrapLogic : MonoBehaviour {
 
-	// Use this for initialization
+	
 	void Start () {
 		
 	}
