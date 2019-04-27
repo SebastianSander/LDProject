@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour {
 
@@ -16,8 +17,8 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody player = null;
 
-    
 
+    private UnityAction deathListener;
 
 
 
@@ -49,10 +50,22 @@ public class PlayerController : MonoBehaviour {
     {
         if (col.gameObject.tag == "Floor"&&isJumping)
         {
-            isJumping = false;
-            Debug.Log("test");
+            isJumping = false;;
+        }
+
+        
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Trap")
+        {
+            Debug.Log("Event Trigger");
+            EventManager.TriggerEvent("trap");
         }
     }
+
 
 
 }
