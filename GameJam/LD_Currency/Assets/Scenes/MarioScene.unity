@@ -159,17 +159,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c159adeb2556224188fe5f58c5a4f1b, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &131619305 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1308917769873444, guid: 9782157a121a7224994d700858c0cb76,
-    type: 2}
-  m_PrefabInternal: {fileID: 916607887}
---- !u!114 &196577418 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114988670455640882, guid: 9782157a121a7224994d700858c0cb76,
-    type: 2}
-  m_PrefabInternal: {fileID: 916607887}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &315339589
 Prefab:
   m_ObjectHideFlags: 0
@@ -309,12 +298,12 @@ Prefab:
         type: 2}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 131619305}
+      objectReference: {fileID: 1612313491}
     - target: {fileID: 114728280990712162, guid: c036a1b86cb212c42a73cdb9d00926f9,
         type: 2}
       propertyPath: scoreText
       value: 
-      objectReference: {fileID: 196577418}
+      objectReference: {fileID: 2139702326}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c036a1b86cb212c42a73cdb9d00926f9, type: 2}
   m_IsPrefabAsset: 0
@@ -465,6 +454,11 @@ Prefab:
     - target: {fileID: 4468110826770186, guid: 9782157a121a7224994d700858c0cb76, type: 2}
       propertyPath: m_LocalPosition.y
       value: 4.1055923
+      objectReference: {fileID: 0}
+    - target: {fileID: 224602612573593146, guid: 9782157a121a7224994d700858c0cb76,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -521
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9782157a121a7224994d700858c0cb76, type: 2}
@@ -761,3 +755,14 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c159adeb2556224188fe5f58c5a4f1b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1612313491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1428937707620896, guid: 9782157a121a7224994d700858c0cb76,
+    type: 2}
+  m_PrefabInternal: {fileID: 916607887}
+--- !u!114 &2139702326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114861464210006282, guid: 9782157a121a7224994d700858c0cb76,
+    type: 2}
+  m_PrefabInternal: {fileID: 916607887}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
