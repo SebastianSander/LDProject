@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114081569840124964}
   - component: {fileID: 114728280990712162}
   m_Layer: 0
-  m_Name: GameManagerObject
+  m_Name: GameManagerObjectMustBeInEveryScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
