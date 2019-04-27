@@ -16,24 +16,34 @@ public class GameManagerScript : MonoBehaviour {
     [SerializeField]
     Text scoreText;
 
+    
+
+
+    [SerializeField]
+    GameObject player1;
+    [SerializeField]
+    GameObject player2;
+
     bool isPaused=false;
 
 
-    private UnityAction scoreListener;
+    private UnityAction deathListener;
+    private UnityAction changeChar;
+
 
     void Awake()
     {
-        scoreListener = new UnityAction(SetScore);
+        deathListener = new UnityAction(dealWithDeath);
     }
 
     void OnEnable()
     {
-        EventManager.StartListening("trap", SetScore);
+        EventManager.StartListening("trap", dealWithDeath);
     }
 
     void OnDisable()
     {
-        EventManager.StopListening("trap", SetScore);
+        EventManager.StopListening("trap", dealWithDeath);
     }
 
     void Start() {
@@ -45,9 +55,16 @@ public class GameManagerScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) togglePause();
     }
 
-    void SetScore() {
+    void dealWithDeath() {
         underlingsLeft--;
         scoreText.text = "Underlings left: " + underlingsLeft;
+
+        player1.GetComponent<PlayerController>().enabled = false;
+        player2.GetComponent<PlayerController>().enabled = true;
+
+
+
+        EventManager.TriggerEvent("changeChar");
     }
 
     void togglePause() {
