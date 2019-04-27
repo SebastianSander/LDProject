@@ -13,8 +13,8 @@ public class FloorDownScript : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.S))
+	void LateUpdate () {
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             sPressed = true;  
         }
