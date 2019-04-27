@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114081569840124964}
   - component: {fileID: 114728280990712162}
   m_Layer: 0
-  m_Name: GameManagerObject
+  m_Name: GameManagerObjectMustBeInEveryScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,3 +63,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3cfd8d198d4b9349b30890af630141a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  scoreText: {fileID: 0}
