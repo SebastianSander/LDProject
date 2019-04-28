@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,49 +11,46 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving = false;
     private bool isJumping = false;
     
-
-    private Animator anim;
+    
     private Rigidbody rigidBody;
+
+    private Vector3 movement;
 
     // Use this for initialization
     void Start()
     {
 
-       
-        //anim = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
 
         isMoving = false;
+        float h = Input.GetAxis("Horizontal");
+        movement =  h * Vector3.right * playerSpeed * 5;
 
-        if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
-        {
-            //transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * playerSpeed);
-            rigidBody.velocity += transform.right * Input.GetAxisRaw("Horizontal") * playerSpeed;
-            isMoving = true;
-        }
-        if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
-        {
-            //transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed);
-            rigidBody.velocity += transform.forward * Input.GetAxisRaw("Vertical") * playerSpeed;
-            isMoving = true;
-        }
+        
+
+        rigidBody.AddForce(movement);
 
         if (Input.GetKeyDown(KeyCode.Space)&&!isJumping)
         {
-            //transform.Translate(Vector3.up * jumpHeight);
             Vector3 newForce = new Vector3(0f, 1f, 0f);
             rigidBody.AddForce(newForce*jumpHeight, ForceMode.Impulse);
             isJumping = true;
             
         }
-
+        if (isJumping) {
+            // apply extra gravity from multiplier:
+            float multi = 2f;
+            Vector3 extraGravityForce = (Physics.gravity * multi) - Physics.gravity;
+            rigidBody.AddForce(extraGravityForce);
+        }
+        
         
 
         //anim.SetBool("isMoving", isMoving);
