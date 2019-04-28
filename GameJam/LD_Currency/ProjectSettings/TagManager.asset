@@ -9,6 +9,7 @@ TagManager:
   - Trap
   - LaserButton
   - FanButton
+  - Overlord
   layers:
   - Default
   - TransparentFX

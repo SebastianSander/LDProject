@@ -8,7 +8,7 @@ using Cinemachine;
 public class GameManagerScript : MonoBehaviour {
 
 
-    private int underlingsLeft=10;
+    private int underlingsLeft=5;
 
     [SerializeField]
     ParticleSystem gas;
@@ -20,9 +20,29 @@ public class GameManagerScript : MonoBehaviour {
     Text scoreText=null;
 
     [SerializeField]
-    CinemachineVirtualCamera cin1;
+    CinemachineVirtualCamera cam;
     [SerializeField]
-    CinemachineVirtualCamera cin2;
+    CinemachineVirtualCamera cam1;
+    [SerializeField]
+    CinemachineVirtualCamera cam2;
+    [SerializeField]
+    CinemachineVirtualCamera cam3;
+    [SerializeField]
+    CinemachineVirtualCamera cam4;
+
+    [SerializeField]
+    GameObject player;
+    [SerializeField]
+    GameObject player1;
+    [SerializeField]
+    GameObject player2;
+    [SerializeField]
+    GameObject player3;
+    [SerializeField]
+    GameObject player4;
+
+    [SerializeField]
+    GameObject overlord;
 
 
 
@@ -51,7 +71,7 @@ public class GameManagerScript : MonoBehaviour {
         EventManager.StopListening("delaytrap", delayDeath);
         EventManager.StopListening("activatelasertrap", activateLaserTrap);
         EventManager.StopListening("activatefantrap", activateFanTrap);
-}
+    }
 
     void Start() {
 
@@ -63,10 +83,35 @@ public class GameManagerScript : MonoBehaviour {
     }
 
     void dealWithDeath() {
-        //underlingsLeft--;
-        //scoreText.text = "Underlings left: " + underlingsLeft;
-
-        //cin2.Priority = 10;
+        underlingsLeft--;
+        scoreText.text = "Underlings left: " + underlingsLeft;
+        switch (underlingsLeft)
+        {
+            case 4:
+                cam.Priority = 1;
+                player.GetComponent<PlayerMovement>().enabled = false;
+                player1.GetComponent<PlayerMovement>().enabled = true;
+                break;
+            case 3:
+                cam1.Priority = 1;
+                player1.GetComponent<PlayerMovement>().enabled = false;
+                player2.GetComponent<PlayerMovement>().enabled = true;
+                break;
+            case 2:
+                cam2.Priority = 1;
+                player2.GetComponent<PlayerMovement>().enabled = false;
+                player3.GetComponent<PlayerMovement>().enabled = true;
+                break;
+            case 1:
+                cam3.Priority = 1;
+                player3.GetComponent<PlayerMovement>().enabled = false;
+                player4.GetComponent<PlayerMovement>().enabled = true;
+                break;
+            case 0:
+                cam4.Priority = 1;
+                break;
+        }
+        
     }
 
     void delayDeath() {

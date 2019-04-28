@@ -3,11 +3,10 @@ using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.Events;
 
-public class PlayerMovement : MonoBehaviour
+public class AutoWalk : MonoBehaviour
 {
 
-    public float playerSpeed=1f;
-    public float jumpHeight = 3f;
+    
 
     private bool isMoving = false;
     private bool isJumping = false;
@@ -22,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 movement;
 
-    
+
 
     // Use this for initialization
     void Start()
@@ -38,21 +37,15 @@ public class PlayerMovement : MonoBehaviour
 
 
         isMoving = false;
-        float h = Input.GetAxis("Horizontal");
-        movement =  h * Vector3.right * playerSpeed * 5;
 
+        movement = new Vector3(10f, 0f, 0f);
         if (movement.magnitude >= 1f) isMoving = true;
 
         rigidBody.AddForce(movement);
 
-        if (Input.GetKeyDown(KeyCode.Space)&&!isJumping)
+        
+        if (isJumping)
         {
-            Vector3 newForce = new Vector3(0f, 1f, 0f);
-            rigidBody.AddForce(newForce*jumpHeight, ForceMode.Impulse);
-            isJumping = true;
-            
-        }
-        if (isJumping) {
             // apply extra gravity from multiplier:
             float multi = 2f;
             Vector3 extraGravityForce = (Physics.gravity * multi) - Physics.gravity;
@@ -63,12 +56,13 @@ public class PlayerMovement : MonoBehaviour
             standing.SetActive(false);
             walking.SetActive(true);
         }
-        else {
+        else
+        {
             standing.SetActive(true);
             walking.SetActive(false);
         }
-        
-        
+
+
 
         //anim.SetBool("isMoving", isMoving);
         //anim.SetBool("isSprinting", isSprinting);
@@ -77,11 +71,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Floor") {
+        if (collision.gameObject.tag == "Floor")
+        {
             isJumping = false;
         }
     }
 
-    
+
 }
 
