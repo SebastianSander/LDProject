@@ -28,8 +28,7 @@ public class FloorDownScript : MonoBehaviour {
 
             f_Collider.enabled = !f_Collider.enabled;
             Debug.Log("Collider.enabled = " + f_Collider.enabled);
-            
-        
+                  
         }
     }
 }
