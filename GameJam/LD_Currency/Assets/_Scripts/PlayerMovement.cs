@@ -4,14 +4,12 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float playerSpeed;
-    public float sprintSpeed = 4f;
-    public float walkSpeed = 2f;
-    public float mouseSensitivity = 2f;
+    public float playerSpeed=1f;
     public float jumpHeight = 3f;
+
     private bool isMoving = false;
-    private bool isSprinting = false;
-    private float yRot;
+    private bool isJumping = false;
+    
 
     private Animator anim;
     private Rigidbody rigidBody;
@@ -20,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
 
-        playerSpeed = walkSpeed;
-        anim = GetComponent<Animator>();
+       
+        //anim = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
 
     }
@@ -30,8 +28,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        yRot += Input.GetAxis("Mouse X") * mouseSensitivity;
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, yRot, transform.localEulerAngles.z);
 
         isMoving = false;
 
@@ -48,25 +44,27 @@ public class PlayerMovement : MonoBehaviour
             isMoving = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)&&!isJumping)
         {
-            transform.Translate(Vector3.up * jumpHeight);
+            //transform.Translate(Vector3.up * jumpHeight);
+            Vector3 newForce = new Vector3(0f, 1f, 0f);
+            rigidBody.AddForce(newForce*jumpHeight, ForceMode.Impulse);
+            isJumping = true;
+            
         }
 
-        if (Input.GetAxisRaw("Sprint") > 0f)
-        {
-            playerSpeed = sprintSpeed;
-            isSprinting = true;
-        }
-        else if (Input.GetAxisRaw("Sprint") < 1f)
-        {
-            playerSpeed = walkSpeed;
-            isSprinting = false;
-        }
+        
 
-        anim.SetBool("isMoving", isMoving);
-        anim.SetBool("isSprinting", isSprinting);
+        //anim.SetBool("isMoving", isMoving);
+        //anim.SetBool("isSprinting", isSprinting);
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Floor") {
+            isJumping = false;
+        }
     }
 }
 
