@@ -7913,7 +7913,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 647872750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.723198, y: 0.01486149, z: 0.36}
+  m_LocalPosition: {x: 0.07, y: -0.06, z: 0.36}
   m_LocalScale: {x: 0.9727626, y: 1.6393442, z: 1}
   m_Children: []
   m_Father: {fileID: 752722405}
@@ -7974,7 +7974,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5f22a23f8339a9b4da17d9c60026b7f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -13390,6 +13390,7 @@ MonoBehaviour:
   - {fileID: 208276983}
   - {fileID: 616865954}
   speed: 3
+  gasButton: 0
 --- !u!65 &692213018
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14031,7 +14032,6 @@ GameObject:
   - component: {fileID: 752722402}
   - component: {fileID: 752722401}
   - component: {fileID: 752722406}
-  - component: {fileID: 752722407}
   m_Layer: 0
   m_Name: PlayerNEW
   m_TagString: Untagged
@@ -14050,7 +14050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce99134469d6922438fb4a258767a9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 1
+  playerSpeed: 5
   jumpHeight: 8
 --- !u!136 &752722402
 CapsuleCollider:
@@ -14137,24 +14137,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!95 &752722407
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 752722400}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5ddec59f17a2d8f4fbf406437b87c597, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &758267844
 Prefab:
   m_ObjectHideFlags: 0
