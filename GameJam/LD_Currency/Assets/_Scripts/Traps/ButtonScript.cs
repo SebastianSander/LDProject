@@ -36,6 +36,7 @@ public class ButtonScript : MonoBehaviour {
         }
         if (other.gameObject.tag == "Player" && ePressed && this.gameObject.tag == "FanButton")
         {
+            //Debug.Log("FanButton");
             trap.GetComponent<TrapScript>().activateFanTrap();
         }
 

@@ -10,6 +10,8 @@ public class GameManagerScript : MonoBehaviour {
 
     private int underlingsLeft=10;
 
+    [SerializeField]
+    ParticleSystem gas;
 
     [SerializeField]
     GameObject pauseMenu=null;
@@ -21,7 +23,6 @@ public class GameManagerScript : MonoBehaviour {
     CinemachineVirtualCamera cin1;
     [SerializeField]
     CinemachineVirtualCamera cin2;
-
 
 
 
@@ -80,7 +81,7 @@ public class GameManagerScript : MonoBehaviour {
     void activateFanTrap()
     {
         Debug.Log("Fan activated");
-        ParticleMovement.
+        gas.GetComponent<ParticleMovement>().gasButton = true;
     }
 
 void togglePause() {
