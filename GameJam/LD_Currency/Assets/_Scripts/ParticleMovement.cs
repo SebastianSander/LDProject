@@ -22,24 +22,11 @@ public class ParticleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
-        
-
         if (transform.position == locations[current].position && current < locations.Length-1)
         {
             current++;
         }
         transform.position = Vector3.MoveTowards(transform.position, locations[current].position, speed * Time.deltaTime);
-
-        //wiederholung
-        /*if (current >= locations.Length)
-        {
-            current = 0;
-        }*/
-
-
-        //transform.position = Vector3.MoveTowards(transform.position, locations[current].position, speed * Time.deltaTime);
     }
 
     private void OnCollisionStay(Collision col)
