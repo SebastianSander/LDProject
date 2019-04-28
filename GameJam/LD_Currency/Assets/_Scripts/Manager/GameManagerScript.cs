@@ -41,13 +41,18 @@ public class GameManagerScript : MonoBehaviour {
     {
         EventManager.StartListening("instanttrap", dealWithDeath);
         EventManager.StartListening("delaytrap", delayDeath);
+        EventManager.StartListening("activatelasertrap", activateLaserTrap);
+        EventManager.StartListening("activatefantrap", activateFanTrap);
     }
+
 
     void OnDisable()
     {
         EventManager.StopListening("instanttrap", dealWithDeath);
         EventManager.StopListening("delaytrap", delayDeath);
-    }
+        EventManager.StopListening("activatelasertrap", activateLaserTrap);
+        EventManager.StopListening("activatefantrap", activateFanTrap);
+}
 
     void Start() {
 
@@ -68,8 +73,19 @@ public class GameManagerScript : MonoBehaviour {
     void delayDeath() {
         Debug.Log("test");
     }
+    
 
-    void togglePause() {
+    void activateLaserTrap()
+    {
+        // anim.Bool.Laseractivated = false;
+    }
+
+    void activateFanTrap()
+    {
+        Debug.Log("Fan activated");
+    }
+
+void togglePause() {
         isPaused = !isPaused;
         pauseMenu.SetActive(isPaused);
 

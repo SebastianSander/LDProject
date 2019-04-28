@@ -41,10 +41,22 @@ public class TrapScript : MonoBehaviour {
 
         }
         else if (other.gameObject.tag == "Player") {
-            triggerInsantTrap();
+            triggerInstantTrap();
         }
 
 
+    }
+
+    public void activateLaserTrap()
+    {
+        EventManager.TriggerEvent("activatelasertrap");
+        this.enabled = false;
+    }
+
+    public void activateFanTrap()
+    {
+        EventManager.TriggerEvent("activatefantrap");
+        this.enabled = false;
     }
 
     public void triggerDelayedTrap() {
@@ -52,7 +64,7 @@ public class TrapScript : MonoBehaviour {
         this.enabled = false;
     }
 
-    public void triggerInsantTrap()
+    public void triggerInstantTrap()
     {
         EventManager.TriggerEvent("instanttrap");
         this.enabled = false;

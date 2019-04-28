@@ -30,12 +30,14 @@ public class ButtonScript : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player"&&ePressed&&triggerDelayed) {
-            trap.GetComponent<TrapScript>().triggerDelayedTrap();
+        if (other.gameObject.tag == "Player"&&ePressed && this.gameObject.tag == "LaserButton") {
+            trap.GetComponent<TrapScript>().activateLaserTrap();
+            //Debug.Log(this.gameObject.tag);
         }
-        if (other.gameObject.tag == "Player" && ePressed && triggerInstant)
+        if (other.gameObject.tag == "Player" && ePressed && this.gameObject.tag == "FanButton")
         {
-            trap.GetComponent<TrapScript>().triggerInsantTrap();
+            trap.GetComponent<TrapScript>().activateFanTrap();
         }
+
     }
 }
