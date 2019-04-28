@@ -11,8 +11,6 @@ public class GameManagerScript : MonoBehaviour {
     private int underlingsLeft=10;
 
 
-
-
     [SerializeField]
     GameObject pauseMenu=null;
 
@@ -82,6 +80,7 @@ public class GameManagerScript : MonoBehaviour {
     void activateFanTrap()
     {
         Debug.Log("Fan activated");
+        ParticleMovement.
     }
 
 void togglePause() {
