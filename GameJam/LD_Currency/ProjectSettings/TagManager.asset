@@ -10,6 +10,8 @@ TagManager:
   - LaserButton
   - FanButton
   - Overlord
+  - Pressure1
+  - Pressure2
   layers:
   - Default
   - TransparentFX
