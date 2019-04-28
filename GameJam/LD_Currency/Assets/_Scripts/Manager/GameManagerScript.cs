@@ -39,12 +39,14 @@ public class GameManagerScript : MonoBehaviour {
 
     void OnEnable()
     {
-        EventManager.StartListening("trap", dealWithDeath);
+        EventManager.StartListening("instanttrap", dealWithDeath);
+        EventManager.StartListening("delaytrap", delayDeath);
     }
 
     void OnDisable()
     {
-        EventManager.StopListening("trap", dealWithDeath);
+        EventManager.StopListening("instanttrap", dealWithDeath);
+        EventManager.StopListening("delaytrap", delayDeath);
     }
 
     void Start() {
@@ -61,6 +63,10 @@ public class GameManagerScript : MonoBehaviour {
         scoreText.text = "Underlings left: " + underlingsLeft;
 
         cin2.Priority = 10;
+    }
+
+    void delayDeath() {
+        Debug.Log("test");
     }
 
     void togglePause() {

@@ -6,21 +6,26 @@ using UnityEngine.Events;
 public class PlayerController1 : MonoBehaviour {
 
 
-    private UnityAction deathListener;
+    //private UnityAction deathListener;
 
     
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Trap")
-        {
-            //Debug.Log("Event Trigger");
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "InstantTrap")
+    //    {
+    //        //Debug.Log("Event Trigger");
+    //        EventManager.TriggerEvent("instanttrap");
+    //        other.enabled = false;
+    //    }
 
-            
-            EventManager.TriggerEvent("trap");
+    //    if (other.gameObject.tag == "DelayTrap")
+    //    {
+    //        //Debug.Log("Event Trigger");
+    //        EventManager.TriggerEvent("delaytrap");
+    //        other.enabled = false;
+    //    }
 
-            
-        }
-    }
+    //}
 
     
 
