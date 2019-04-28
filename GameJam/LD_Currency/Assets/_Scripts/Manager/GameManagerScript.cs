@@ -44,6 +44,8 @@ public class GameManagerScript : MonoBehaviour {
     [SerializeField]
     GameObject overlord;
 
+    GameObject laserBarrier;
+
 
 
     bool isPaused=false;
@@ -54,6 +56,7 @@ public class GameManagerScript : MonoBehaviour {
     void Awake()
     {
         deathListener = new UnityAction(dealWithDeath);
+        laserBarrier = GameObject.Find("LaserBarrier");
     }
 
     void OnEnable()
@@ -121,6 +124,7 @@ public class GameManagerScript : MonoBehaviour {
     void activateLaserTrap()
     {
         // anim.Bool.Laseractivated = false;
+        laserBarrier.SetActive(false);
     }
 
     void activateFanTrap()
