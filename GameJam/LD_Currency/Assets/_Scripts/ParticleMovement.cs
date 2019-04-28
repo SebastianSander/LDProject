@@ -38,6 +38,10 @@ public class ParticleMovement : MonoBehaviour
 
     }
 
+    public void setActiveBool(bool gasButton) {
+        this.gasButton = gasButton;
+    }
+
 
     private void OnCollisionStay(Collision col)
     {

@@ -13,6 +13,9 @@ public class TrapScript : MonoBehaviour {
     [SerializeField]
     private float delayTime = 3;
 
+    [SerializeField]
+    private GameObject actionObject;
+
     
 
     private bool trigger = false;
@@ -42,7 +45,8 @@ public class TrapScript : MonoBehaviour {
         }
         else if (other.gameObject.tag == "Player"&&gameObject.tag=="Pressure1") {
             triggerInstantTrap();
-            //gameObject.GetComponent<ParticleMovement>().
+            
+            actionObject.GetComponent<ParticleMovement>().setActiveBool(true);
             gameObject.SetActive(false);
         }
 
