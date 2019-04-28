@@ -93,21 +93,25 @@ public class GameManagerScript : MonoBehaviour {
             case 4:
                 cam.Priority = 1;
                 player.GetComponent<PlayerMovement>().enabled = false;
+                player1.GetComponent<AutoWalk>().enabled = false;
                 player1.GetComponent<PlayerMovement>().enabled = true;
                 break;
             case 3:
                 cam1.Priority = 1;
                 player1.GetComponent<PlayerMovement>().enabled = false;
+                player2.GetComponent<AutoWalk>().enabled = false;
                 player2.GetComponent<PlayerMovement>().enabled = true;
                 break;
             case 2:
                 cam2.Priority = 1;
                 player2.GetComponent<PlayerMovement>().enabled = false;
+                player3.GetComponent<AutoWalk>().enabled = false;
                 player3.GetComponent<PlayerMovement>().enabled = true;
                 break;
             case 1:
                 cam3.Priority = 1;
                 player3.GetComponent<PlayerMovement>().enabled = false;
+                player4.GetComponent<AutoWalk>().enabled = false;
                 player4.GetComponent<PlayerMovement>().enabled = true;
                 break;
             case 0:
