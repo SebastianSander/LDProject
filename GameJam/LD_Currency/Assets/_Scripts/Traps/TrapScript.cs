@@ -26,8 +26,7 @@ public class TrapScript : MonoBehaviour {
             if (delayTime <= 0f)
             {
                 //Debug.Log("test");
-                EventManager.TriggerEvent("delaytrap");
-                this.enabled = false;
+                triggerDelayedTrap();
             }
         }
     }
@@ -42,11 +41,20 @@ public class TrapScript : MonoBehaviour {
 
         }
         else if (other.gameObject.tag == "Player") {
-            EventManager.TriggerEvent("instanttrap");
-            this.enabled = false;
+            triggerInsantTrap();
         }
 
 
     }
 
+    public void triggerDelayedTrap() {
+        EventManager.TriggerEvent("delaytrap");
+        this.enabled = false;
+    }
+
+    public void triggerInsantTrap()
+    {
+        EventManager.TriggerEvent("instanttrap");
+        this.enabled = false;
+    }
 }

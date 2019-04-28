@@ -2500,8 +2500,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
-  m_JumpPower: 12
-  m_GravityMultiplier: 1.86
+  m_JumpPower: 8
+  m_GravityMultiplier: 1.72
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
@@ -2528,7 +2528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7a37487c16c214f99000d7b0c0bf33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1
 --- !u!136 &136830385454959194
 CapsuleCollider:
   m_ObjectHideFlags: 1

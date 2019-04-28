@@ -14,10 +14,10 @@ public class GameManagerScript : MonoBehaviour {
 
 
     [SerializeField]
-    GameObject pauseMenu;
+    GameObject pauseMenu=null;
 
     [SerializeField]
-    Text scoreText;
+    Text scoreText=null;
 
     [SerializeField]
     CinemachineVirtualCamera cin1;
@@ -59,10 +59,10 @@ public class GameManagerScript : MonoBehaviour {
     }
 
     void dealWithDeath() {
-        underlingsLeft--;
-        scoreText.text = "Underlings left: " + underlingsLeft;
+        //underlingsLeft--;
+        //scoreText.text = "Underlings left: " + underlingsLeft;
 
-        cin2.Priority = 10;
+        //cin2.Priority = 10;
     }
 
     void delayDeath() {
