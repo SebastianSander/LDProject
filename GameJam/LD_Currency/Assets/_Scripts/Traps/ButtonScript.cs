@@ -7,11 +7,15 @@ public class ButtonScript : MonoBehaviour {
     [SerializeField]
     GameObject trap;
 
+    
     [SerializeField]
     private bool triggerDelayed = false;
 
     [SerializeField]
     private bool triggerInstant = false;
+
+   
+
 
     private bool ePressed;
 
@@ -36,6 +40,8 @@ public class ButtonScript : MonoBehaviour {
         }
         if (other.gameObject.tag == "Player" && ePressed && this.gameObject.tag == "FanButton")
         {
+            trap.GetComponent<TrapScript>().enabled = true;
+            trap.GetComponent<BoxCollider>().enabled = true;
             //Debug.Log("FanButton");
             trap.GetComponent<TrapScript>().activateFanTrap();
         }

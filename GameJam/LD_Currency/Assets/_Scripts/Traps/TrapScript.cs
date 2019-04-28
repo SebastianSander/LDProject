@@ -16,7 +16,7 @@ public class TrapScript : MonoBehaviour {
     [SerializeField]
     private GameObject actionObject;
 
-    
+
 
     private bool trigger = false;
 
@@ -42,37 +42,53 @@ public class TrapScript : MonoBehaviour {
 
             trigger = true;
 
-        }
-        else if (other.gameObject.tag == "Player"&&gameObject.tag=="Pressure1") {
-            triggerInstantTrap();
-            
+        }      
+        else if (other.gameObject.tag == "Player" && gameObject.tag == "Pressure1")
+        {
+            //triggerInstantTrap();
+
             actionObject.GetComponent<ParticleMovement>().setActiveBool(true);
             gameObject.SetActive(false);
+            
+        }
+        else if (other.gameObject.tag == "Player" && gameObject.tag == "Pressure2")
+        {
+            //triggerInstantTrap();
+
+            actionObject.GetComponent<ParticleMovement>().setActiveBool(true);
+            gameObject.SetActive(false);
+
+
+        }
+        else if (other.gameObject.tag == "Player"&&gameObject.tag!= "Pressure1"&& gameObject.tag != "Pressure2")
+        {
+            triggerInstantTrap();
+
+            gameObject.SetActive(false);
+        }
+    }
+
+        public void activateLaserTrap()
+        {
+            EventManager.TriggerEvent("activatelasertrap");
+            this.enabled = false;
         }
 
+        public void activateFanTrap()
+        {
+            EventManager.TriggerEvent("activatefantrap");
+            this.enabled = false;
+        }
 
-    }
+        public void triggerDelayedTrap() {
+            EventManager.TriggerEvent("delaytrap");
+            this.enabled = false;
+        }
 
-    public void activateLaserTrap()
-    {
-        EventManager.TriggerEvent("activatelasertrap");
-        this.enabled = false;
-    }
-
-    public void activateFanTrap()
-    {
-        EventManager.TriggerEvent("activatefantrap");
-        this.enabled = false;
-    }
-
-    public void triggerDelayedTrap() {
-        EventManager.TriggerEvent("delaytrap");
-        this.enabled = false;
-    }
-
-    public void triggerInstantTrap()
-    {
-        EventManager.TriggerEvent("instanttrap");
-        this.enabled = false;
-    }
+        public void triggerInstantTrap()
+        {
+            EventManager.TriggerEvent("instanttrap");
+            this.enabled = false;
+        }
+    
 }
