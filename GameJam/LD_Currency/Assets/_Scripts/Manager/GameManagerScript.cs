@@ -74,7 +74,6 @@ public class GameManagerScript : MonoBehaviour {
         Debug.Log("test");
     }
     
-
     void activateLaserTrap()
     {
         // anim.Bool.Laseractivated = false;
