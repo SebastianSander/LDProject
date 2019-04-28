@@ -7,6 +7,12 @@ public class ButtonScript : MonoBehaviour {
     [SerializeField]
     GameObject trap;
 
+    [SerializeField]
+    private bool triggerDelayed = false;
+
+    [SerializeField]
+    private bool triggerInstant = false;
+
     private bool ePressed;
 
     void Update()
@@ -24,8 +30,12 @@ public class ButtonScript : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player"&&ePressed) {
-            trap.SetActive(false);
+        if (other.gameObject.tag == "Player"&&ePressed&&triggerDelayed) {
+            trap.GetComponent<TrapScript>().triggerDelayedTrap();
+        }
+        if (other.gameObject.tag == "Player" && ePressed && triggerInstant)
+        {
+            trap.GetComponent<TrapScript>().triggerInsantTrap();
         }
     }
 }
