@@ -40,8 +40,10 @@ public class TrapScript : MonoBehaviour {
             trigger = true;
 
         }
-        else if (other.gameObject.tag == "Player") {
+        else if (other.gameObject.tag == "Player"&&gameObject.tag=="Pressure1") {
             triggerInstantTrap();
+            //gameObject.GetComponent<ParticleMovement>().
+            gameObject.SetActive(false);
         }
 
 

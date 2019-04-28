@@ -38,7 +38,7 @@ public class AutoWalk : MonoBehaviour
 
         isMoving = false;
 
-        movement = new Vector3(10f, 0f, 0f);
+        movement = new Vector3(9f, 0f, 0f);
         if (movement.magnitude >= 1f) isMoving = true;
 
         rigidBody.AddForce(movement);

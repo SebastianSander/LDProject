@@ -8,7 +8,7 @@ using Cinemachine;
 public class GameManagerScript : MonoBehaviour {
 
 
-    private int underlingsLeft=5;
+    private int underlingsLeft=3;
 
     [SerializeField]
     ParticleSystem gas;
@@ -25,10 +25,7 @@ public class GameManagerScript : MonoBehaviour {
     CinemachineVirtualCamera cam1;
     [SerializeField]
     CinemachineVirtualCamera cam2;
-    [SerializeField]
-    CinemachineVirtualCamera cam3;
-    [SerializeField]
-    CinemachineVirtualCamera cam4;
+    
 
     [SerializeField]
     GameObject player;
@@ -36,10 +33,7 @@ public class GameManagerScript : MonoBehaviour {
     GameObject player1;
     [SerializeField]
     GameObject player2;
-    [SerializeField]
-    GameObject player3;
-    [SerializeField]
-    GameObject player4;
+    
 
     [SerializeField]
     GameObject overlord;
@@ -90,33 +84,24 @@ public class GameManagerScript : MonoBehaviour {
         scoreText.text = "Underlings left: " + underlingsLeft;
         switch (underlingsLeft)
         {
-            case 4:
+            case 2:
                 cam.Priority = 1;
                 player.GetComponent<PlayerMovement>().enabled = false;
                 player1.GetComponent<AutoWalk>().enabled = false;
                 player1.GetComponent<PlayerMovement>().enabled = true;
                 break;
-            case 3:
+            case 1:
                 cam1.Priority = 1;
                 player1.GetComponent<PlayerMovement>().enabled = false;
                 player2.GetComponent<AutoWalk>().enabled = false;
                 player2.GetComponent<PlayerMovement>().enabled = true;
                 break;
-            case 2:
-                cam2.Priority = 1;
-                player2.GetComponent<PlayerMovement>().enabled = false;
-                player3.GetComponent<AutoWalk>().enabled = false;
-                player3.GetComponent<PlayerMovement>().enabled = true;
-                break;
-            case 1:
-                cam3.Priority = 1;
-                player3.GetComponent<PlayerMovement>().enabled = false;
-                player4.GetComponent<AutoWalk>().enabled = false;
-                player4.GetComponent<PlayerMovement>().enabled = true;
-                break;
             case 0:
-                cam4.Priority = 1;
+                player2.GetComponent<PlayerMovement>().enabled = false;
+                Debug.Log("noone Left");
+                
                 break;
+            
         }
         
     }
