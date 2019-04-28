@@ -26,7 +26,7 @@ public class ParticleMovement : MonoBehaviour
         
         
 
-        if (transform.position == locations[current].position)
+        if (transform.position == locations[current].position && current < locations.Length-1)
         {
             current++;
         }
@@ -47,28 +47,3 @@ public class ParticleMovement : MonoBehaviour
         
     }
 }
-
-
-
-
-
-/*public class ParticleScript : MonoBehaviour {
-
-    public GameObject gas;
-    [SerializeField]
-    bool fanButtonPressed = true;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (fanButtonPressed) {
-            gas.transform. += 1;
-        }
-	}
-
-
-}
-*/
