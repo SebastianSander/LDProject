@@ -43,9 +43,7 @@ public class ParticleMovement : MonoBehaviour
     }
 
 
-    private void OnCollisionStay(Collision col)
-    {
-        
-    }
+    
+
 
 }

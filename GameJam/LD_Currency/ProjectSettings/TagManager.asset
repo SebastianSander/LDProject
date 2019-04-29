@@ -13,6 +13,8 @@ TagManager:
   - Pressure1
   - Pressure2
   - JumpTrigger
+  - TrapDeactivate
+  - CircuitTrap
   layers:
   - Default
   - TransparentFX

@@ -32,10 +32,13 @@ public class TrapScript : MonoBehaviour {
                 triggerDelayedTrap();
             }
         }
+        if(this.gameObject.name=="LaserBall2")if (gameObject.transform.position.x <= actionObject.transform.position.x && actionObject.activeInHierarchy) this.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+
+        
         if (other.gameObject.tag == "Player" && delay)
         {
             Debug.Log("Event Trigger");
@@ -75,6 +78,8 @@ public class TrapScript : MonoBehaviour {
             
             gameObject.SetActive(false);
         }
+
+        
     }
 
         public void activateLaserTrap()
@@ -100,4 +105,6 @@ public class TrapScript : MonoBehaviour {
             this.enabled = false;
         }
     
+    
+
 }

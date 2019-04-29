@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject walking;
 
+    [SerializeField]
+    private GameObject dead;
+
+
+    private Animator anim;
+
     private Rigidbody rigidBody;
 
     private Vector3 movement;
@@ -31,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
 
         //playerSpeed /= 10;
+
+        anim = dead.GetComponent<Animator>();
 
     }
 
@@ -99,6 +107,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
+    public void die() {
+        isMoving = false;
+        walking.SetActive(false);
+        standing.SetActive(false);
+        dead.SetActive(true);
+        anim.SetBool("justDied", true);
+    }
+
+
 }
 

@@ -45,6 +45,11 @@ public class ButtonScript : MonoBehaviour {
             //Debug.Log("FanButton");
             trap.GetComponent<TrapScript>().activateFanTrap();
         }
+        if (other.gameObject.tag == "Player" && ePressed && this.gameObject.tag == "CircuitTrap")
+        {
+            trap.SetActive(false);
+            EventManager.TriggerEvent("instanttrap");
+        }
 
     }
 }

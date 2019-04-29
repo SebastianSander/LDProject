@@ -41,7 +41,7 @@ public class GameManagerScript : MonoBehaviour {
 
     GameObject laserBarrier;
 
-
+    private int ULcount=2;
 
     bool isPaused=false;
 
@@ -85,27 +85,38 @@ public class GameManagerScript : MonoBehaviour {
     void dealWithDeath() {
         underlingsLeft--;
         scoreText.text = "Underlings left: " + underlingsLeft;
-        switch (underlingsLeft)
+        Debug.Log("before switch"+ULcount);
+        switch (ULcount)
         {
             case 2:
                 cam.Priority = 1;
+                player.GetComponent<PlayerMovement>().die();
                 player.GetComponent<PlayerMovement>().enabled = false;
                 player1.GetComponent<AutoWalk>().enabled = false;
                 player1.GetComponent<PlayerMovement>().enabled = true;
+                ULcount--;
                 break;
             case 1:
                 cam1.Priority = 1;
+                player1.GetComponent<PlayerMovement>().die();
                 player1.GetComponent<PlayerMovement>().enabled = false;
                 player2.GetComponent<AutoWalk>().enabled = false;
                 player2.GetComponent<PlayerMovement>().enabled = true;
+                ULcount--;
                 break;
             case 0:
+                player2.GetComponent<PlayerMovement>().die();
                 player2.GetComponent<PlayerMovement>().enabled = false;
+                cam2.Priority = 1;
                 Debug.Log("noone Left");
-                
+                ULcount--;
                 break;
-            
+            case -1:
+                
+                Debug.Log("camset");
+                break;
         }
+        Debug.Log(ULcount);
         
     }
 

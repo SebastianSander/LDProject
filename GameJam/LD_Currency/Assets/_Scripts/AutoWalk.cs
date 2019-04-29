@@ -42,7 +42,7 @@ public class AutoWalk : MonoBehaviour
 
 
         Vector3 position = transform.position;
-        if (up) transform.position = position+new Vector3(0f,1.1f,0);
+        if (up) transform.position = position+new Vector3(0.5f,1.0f,0);
 
         rigidBody.MovePosition(position + movement * playerSpeed / 10);
 
@@ -65,6 +65,8 @@ public class AutoWalk : MonoBehaviour
         {
 
             up = false;
+            //Vector3 position = transform.position;
+            //if (up) transform.position = position + new Vector3(0.6f, 0.2f, 0);
         }
     }
 
