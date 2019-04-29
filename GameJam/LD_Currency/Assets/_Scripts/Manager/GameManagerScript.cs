@@ -71,7 +71,7 @@ public class GameManagerScript : MonoBehaviour {
     }
 
     void Start() {
-
+        togglePause();
     }
 
     // Update is called once per frame
