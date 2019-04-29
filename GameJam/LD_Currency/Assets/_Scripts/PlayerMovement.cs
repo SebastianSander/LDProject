@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float playerSpeed=1f;
+    public float playerSpeed=0.5f;
     public float jumpHeight = 3f;
 
     private bool isMoving = false;
@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
         rigidBody = GetComponent<Rigidbody>();
 
+        //playerSpeed /= 10;
+
     }
 
     // Update is called once per frame
@@ -39,11 +41,24 @@ public class PlayerMovement : MonoBehaviour
 
         isMoving = false;
         float h = Input.GetAxis("Horizontal");
-        movement =  h * Vector3.right * playerSpeed * 5;
 
-        if (movement.magnitude >= 1f) isMoving = true;
+        movement = new Vector3(h, 0f, 0f);
 
-        rigidBody.AddForce(movement);
+        
+
+        Vector3 position = transform.position;
+        if (Input.GetKey(KeyCode.D)) {
+            walking.GetComponent<SpriteRenderer>().flipX = true ;
+            isMoving = true;
+            rigidBody.MovePosition(position + movement*playerSpeed/10);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            walking.GetComponent<SpriteRenderer>().flipX = false;
+            isMoving = true;
+            rigidBody.MovePosition(position + movement * playerSpeed/10);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space)&&!isJumping)
         {
