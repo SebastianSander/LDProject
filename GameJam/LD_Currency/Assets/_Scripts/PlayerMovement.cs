@@ -113,6 +113,9 @@ public class PlayerMovement : MonoBehaviour
         standing.SetActive(false);
         dead.SetActive(true);
         anim.SetBool("justDied", true);
+
+        //FMOD SOUND
+        FMODUnity.RuntimeManager.PlayOneShot("event:/DeathUnderling", new Vector3(0, 0, 0));
     }
 
 

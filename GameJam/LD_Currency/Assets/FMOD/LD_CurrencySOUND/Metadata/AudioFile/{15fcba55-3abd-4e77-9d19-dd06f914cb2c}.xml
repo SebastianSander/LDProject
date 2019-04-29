@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{15fcba55-3abd-4e77-9d19-dd06f914cb2c}">
+        <property name="assetPath">
+            <value>Spacepirate.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>97.846167800453514</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{34e4fbb0-d02f-41be-84d4-b03ce746006e}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -23,6 +23,9 @@ public class AutoWalk : MonoBehaviour
 
     bool up = false;
 
+    //FMOD SOUND
+    private FMOD.Studio.EventInstance walkingCaptain;
+
 
 
     // Use this for initialization
@@ -32,6 +35,10 @@ public class AutoWalk : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
 
         movement = new Vector3(1f, 0f, 0f);
+
+        //FMOD SOUND does nothing
+        walkingCaptain = FMODUnity.RuntimeManager.CreateInstance("event:/WalkingOverlord");
+        //walkingCaptain.start();
     }
 
     
@@ -45,6 +52,9 @@ public class AutoWalk : MonoBehaviour
         if (up) transform.position = position+new Vector3(0.5f,1.0f,0);
 
         rigidBody.MovePosition(position + movement * playerSpeed / 10);
+
+        //SOUND FMOD
+
 
         
 

@@ -45,6 +45,7 @@ public class GameManagerScript : MonoBehaviour {
 
     bool isPaused=false;
 
+    
 
     private UnityAction deathListener;
     
@@ -52,6 +53,7 @@ public class GameManagerScript : MonoBehaviour {
     {
         deathListener = new UnityAction(dealWithDeath);
         laserBarrier = GameObject.Find("LaserBarrier");
+            
     }
 
     void OnEnable()
@@ -147,7 +149,7 @@ public class GameManagerScript : MonoBehaviour {
 
     void endGameNeg() {
         Debug.Log("Overlord died");
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/DeathOverlord", new Vector3(0, 0, 0));
         SceneManager.LoadScene(2);
     }
 
