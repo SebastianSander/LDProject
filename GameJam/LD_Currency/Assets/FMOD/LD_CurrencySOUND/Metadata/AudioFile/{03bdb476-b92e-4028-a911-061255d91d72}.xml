@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{03bdb476-b92e-4028-a911-061255d91d72}">
+        <property name="assetPath">
+            <value>screaming captain 2 1.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.3003174603174603</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{34e4fbb0-d02f-41be-84d4-b03ce746006e}</destination>
+        </relationship>
+    </object>
+</objects>
