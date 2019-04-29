@@ -7,7 +7,9 @@ public class ButtonScript : MonoBehaviour {
     [SerializeField]
     GameObject trap;
 
-    
+    [SerializeField]
+    GameObject fanRot;
+
     [SerializeField]
     private bool triggerDelayed = false;
 
@@ -18,6 +20,7 @@ public class ButtonScript : MonoBehaviour {
 
 
     private bool ePressed;
+
 
     void Update()
     {
@@ -44,6 +47,7 @@ public class ButtonScript : MonoBehaviour {
             trap.GetComponent<BoxCollider>().enabled = true;
             //Debug.Log("FanButton");
             trap.GetComponent<TrapScript>().activateFanTrap();
+            fanRot.SetActive(true);
         }
         if (other.gameObject.tag == "Player" && ePressed && this.gameObject.tag == "CircuitTrap")
         {
