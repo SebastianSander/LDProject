@@ -1,12 +1,12 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityStandardAssets.CrossPlatformInput;
-using UnityEngine.Events;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 
 public class AutoWalk : MonoBehaviour
 {
-
-    
+    private float playerSpeed = 0.2f;
+    private float jumpHeight = 3f;
 
     private bool isMoving = false;
     private bool isJumping = false;
@@ -21,6 +21,8 @@ public class AutoWalk : MonoBehaviour
 
     private Vector3 movement;
 
+    bool up = false;
+
 
 
     // Use this for initialization
@@ -29,54 +31,44 @@ public class AutoWalk : MonoBehaviour
 
         rigidBody = GetComponent<Rigidbody>();
 
+        movement = new Vector3(1f, 0f, 0f);
     }
+
+    
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
 
-        isMoving = false;
+        Vector3 position = transform.position;
+        if (up) transform.position = position+new Vector3(0f,1.1f,0);
 
-        movement = new Vector3(9f, 0f, 0f);
-        if (movement.magnitude >= 1f) isMoving = true;
-
-        rigidBody.AddForce(movement);
+        rigidBody.MovePosition(position + movement * playerSpeed / 10);
 
         
-        if (isJumping)
-        {
-            // apply extra gravity from multiplier:
-            float multi = 2f;
-            Vector3 extraGravityForce = (Physics.gravity * multi) - Physics.gravity;
-            rigidBody.AddForce(extraGravityForce);
-        }
-        if (isMoving)
-        {
-            standing.SetActive(false);
-            walking.SetActive(true);
-        }
-        else
-        {
-            standing.SetActive(true);
-            walking.SetActive(false);
-        }
-
-
-
-        //anim.SetBool("isMoving", isMoving);
-        //anim.SetBool("isSprinting", isSprinting);
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.tag == "Floor")
-        {
-            isJumping = false;
+        if (other.gameObject.tag == "JumpTrigger") {
+
+            up = true;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "JumpTrigger")
+        {
+
+            up = false;
+        }
+    }
+
+
 
 
 }
-

@@ -42,8 +42,10 @@ public class PlayerMovement : MonoBehaviour
         isMoving = false;
         float h = Input.GetAxis("Horizontal");
 
-        movement = new Vector3(h, 0f, 0f);
+        
 
+        movement = new Vector3(h, 0f, 0f);
+        movement = movement.normalized;
         
 
         Vector3 position = transform.position;

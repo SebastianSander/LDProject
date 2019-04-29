@@ -12,6 +12,7 @@ TagManager:
   - Overlord
   - Pressure1
   - Pressure2
+  - JumpTrigger
   layers:
   - Default
   - TransparentFX
