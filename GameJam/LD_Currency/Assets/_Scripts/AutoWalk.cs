@@ -1,42 +1,82 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.Events;
 
-
-public class AutoWalk: MonoBehaviour
+public class AutoWalk : MonoBehaviour
 {
 
-    public Transform[] locations;
-    public float speed;
-    private int current;
-    public bool walkingStart = true;
+    
+
+    private bool isMoving = false;
+    private bool isJumping = false;
+
+    [SerializeField]
+    private GameObject standing;
+
+    [SerializeField]
+    private GameObject walking;
+
+    private Rigidbody rigidBody;
+
+    private Vector3 movement;
+
+
 
     // Use this for initialization
     void Start()
     {
-        transform.position = locations[0].position;
-        current = 1;
+
+        rigidBody = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (transform.position == locations[current].position && current < locations.Length - 1)
+
+
+        isMoving = false;
+
+        movement = new Vector3(9f, 0f, 0f);
+        if (movement.magnitude >= 1f) isMoving = true;
+
+        rigidBody.AddForce(movement);
+
+        
+        if (isJumping)
         {
-            current++;
+            // apply extra gravity from multiplier:
+            float multi = 2f;
+            Vector3 extraGravityForce = (Physics.gravity * multi) - Physics.gravity;
+            rigidBody.AddForce(extraGravityForce);
+        }
+        if (isMoving)
+        {
+            standing.SetActive(false);
+            walking.SetActive(true);
+        }
+        else
+        {
+            standing.SetActive(true);
+            walking.SetActive(false);
         }
 
-        if (walkingStart)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, locations[current].position, speed * Time.deltaTime);
-        }
+
+
+        //anim.SetBool("isMoving", isMoving);
+        //anim.SetBool("isSprinting", isSprinting);
 
     }
 
-
-    private void OnCollisionStay(Collision col)
+    private void OnCollisionEnter(Collision collision)
     {
-
+        if (collision.gameObject.tag == "Floor")
+        {
+            isJumping = false;
+        }
     }
+
 
 }
+
