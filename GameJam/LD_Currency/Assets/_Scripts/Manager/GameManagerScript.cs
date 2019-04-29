@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour {
 
@@ -134,6 +135,8 @@ public class GameManagerScript : MonoBehaviour {
 
     void endGameNeg() {
         Debug.Log("Overlord died");
+
+        SceneManager.LoadScene(2);
     }
 
     
