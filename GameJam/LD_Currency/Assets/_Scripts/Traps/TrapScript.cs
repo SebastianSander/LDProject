@@ -43,7 +43,7 @@ public class TrapScript : MonoBehaviour {
             trigger = true;
 
         }      
-        else if (other.gameObject.tag == "Player" && gameObject.tag == "Pressure1")
+        else if ((other.gameObject.tag == "Player" || other.gameObject.tag=="Overlord") && gameObject.tag == "Pressure1")
         {
             //triggerInstantTrap();
 
@@ -51,7 +51,7 @@ public class TrapScript : MonoBehaviour {
             gameObject.SetActive(false);
             
         }
-        else if (other.gameObject.tag == "Player" && gameObject.tag == "Pressure2")
+        else if ((other.gameObject.tag == "Player" || other.gameObject.tag == "Overlord") && gameObject.tag == "Pressure2")
         {
             //triggerInstantTrap();
 
@@ -64,6 +64,15 @@ public class TrapScript : MonoBehaviour {
         {
             triggerInstantTrap();
 
+            gameObject.SetActive(false);
+        }
+        else if (other.gameObject.tag == "Overlord" && gameObject.tag != "Pressure1" && gameObject.tag != "Pressure2")
+        {
+
+            
+            //triggerInstantTrap();
+            EventManager.TriggerEvent("endgameneg");
+            
             gameObject.SetActive(false);
         }
     }

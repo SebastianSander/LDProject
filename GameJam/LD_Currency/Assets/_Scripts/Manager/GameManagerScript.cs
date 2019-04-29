@@ -59,6 +59,7 @@ public class GameManagerScript : MonoBehaviour {
         EventManager.StartListening("delaytrap", delayDeath);
         EventManager.StartListening("activatelasertrap", activateLaserTrap);
         EventManager.StartListening("activatefantrap", activateFanTrap);
+        EventManager.StartListening("endgameneg", endGameNeg);
     }
 
 
@@ -68,6 +69,7 @@ public class GameManagerScript : MonoBehaviour {
         EventManager.StopListening("delaytrap", delayDeath);
         EventManager.StopListening("activatelasertrap", activateLaserTrap);
         EventManager.StopListening("activatefantrap", activateFanTrap);
+        EventManager.StopListening("endgameneg", endGameNeg);
     }
 
     void Start() {
@@ -122,12 +124,16 @@ public class GameManagerScript : MonoBehaviour {
         gas.GetComponent<ParticleMovement>().gasButton = true;
     }
 
-void togglePause() {
+    void togglePause() {
         isPaused = !isPaused;
         pauseMenu.SetActive(isPaused);
 
         if (isPaused) Time.timeScale = 0f;
         else Time.timeScale = 1f;
+    }
+
+    void endGameNeg() {
+        Debug.Log("Overlord died");
     }
 
     
