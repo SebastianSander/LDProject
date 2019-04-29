@@ -80,6 +80,7 @@ public class GameManagerScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) togglePause();
+        if (Input.GetKeyDown(KeyCode.R))SceneManager.LoadScene(1);
     }
 
     void dealWithDeath() {
