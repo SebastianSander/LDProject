@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -329,7 +329,7 @@ Transform:
   m_GameObject: {fileID: 600753432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 82.57544}
-  m_LocalScale: {x: 32, y: 32, z: 27.16298}
+  m_LocalScale: {x: 54, y: 54, z: 27.16298}
   m_Children: []
   m_Father: {fileID: 19315742}
   m_RootOrder: 0
@@ -720,6 +720,7 @@ MonoBehaviour:
   fanRot: {fileID: 0}
   triggerDelayed: 0
   triggerInstant: 0
+  fanSoundStarted: 0
 --- !u!4 &1792635462
 Transform:
   m_ObjectHideFlags: 0

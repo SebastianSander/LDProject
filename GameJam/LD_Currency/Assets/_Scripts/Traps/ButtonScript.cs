@@ -35,7 +35,7 @@ public class ButtonScript : MonoBehaviour {
     float counter = 0;
 
 
-
+    GameObject uc;
 
 
     private bool ePressed;
@@ -47,6 +47,8 @@ public class ButtonScript : MonoBehaviour {
         laserSound = laserObject.GetComponent<LaserSoundScript>();
         electricObject = GameObject.FindGameObjectWithTag("CircuitTrap");
         electricSound = electricObject.GetComponent<ElectricitySoundScript>();
+
+        uc = GameObject.Find("circuitused");
 
         fan = FMODUnity.RuntimeManager.CreateInstance("event:/Fan");
     }
@@ -102,6 +104,11 @@ public class ButtonScript : MonoBehaviour {
             trap.GetComponent<BoxCollider>().enabled = true;
             //Debug.Log("FanButton");
             trap.GetComponent<TrapScript>().activateFanTrap();
+            GameObject.Find("LampOn1").SetActive(false);
+            GameObject.Find("LampOn2").SetActive(false);
+            GameObject.Find("elec1").SetActive(false);
+            GameObject.Find("elec2").SetActive(false);
+
             fanRot.SetActive(true);
 
             //FMOD SOUND
@@ -112,6 +119,7 @@ public class ButtonScript : MonoBehaviour {
         if (other.gameObject.tag == "Player" && ePressed && this.gameObject.tag == "CircuitTrap")
         {
             trap.SetActive(false);
+            //uc.SetActive(true);
             EventManager.TriggerEvent("instanttrap");
 
 

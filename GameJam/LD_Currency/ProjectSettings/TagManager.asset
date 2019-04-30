@@ -15,6 +15,7 @@ TagManager:
   - JumpTrigger
   - TrapDeactivate
   - CircuitTrap
+  - UC
   layers:
   - Default
   - TransparentFX

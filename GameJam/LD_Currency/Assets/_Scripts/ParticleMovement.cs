@@ -10,6 +10,8 @@ public class ParticleMovement : MonoBehaviour
     public float speed;
     private int current;
     public bool gasButton;
+    [SerializeField]
+    public ParticleSystem ps;
 
     // Use this for initialization
     void Start()
@@ -30,6 +32,12 @@ public class ParticleMovement : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, locations[current].position, speed * Time.deltaTime);
         }
+
+        if (current == locations.Length-1) {
+           ps.Stop();
+           
+
+        } 
 
         /*for (int i = 0; i < locations.Length - 1; i++)
         {

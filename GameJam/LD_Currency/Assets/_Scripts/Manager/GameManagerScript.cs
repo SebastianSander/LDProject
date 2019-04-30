@@ -82,12 +82,16 @@ public class GameManagerScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) togglePause();
-        if (Input.GetKeyDown(KeyCode.R))SceneManager.LoadScene(1);
+        if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(1);
     }
 
     void dealWithDeath() {
         underlingsLeft--;
-        scoreText.text = "Underlings left: " + underlingsLeft;
+        //scoreText.text = "Underlings left: " + underlingsLeft;
+        if (underlingsLeft == 2) GameObject.Find("playericon3").SetActive(false);
+        if (underlingsLeft == 1) GameObject.Find("playericon2").SetActive(false);
+        if (underlingsLeft == 0) GameObject.Find("playericon1").SetActive(false);
+
         Debug.Log("before switch"+ULcount);
         switch (ULcount)
         {
